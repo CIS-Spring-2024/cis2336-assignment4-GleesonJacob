@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sugarland Eats</h1>
+        <figure>
+            <img class="logo" src="pictures/UH.png" alt="uh logo">
+        </figure>
+
+    </header>
+    <!-- Nav bar -->
+    <nav>
+        <div class="topnav"> 
+            <a href="about.html">About Me</a>
+            <a href="index.html" >Home</a>
+            <a href="menu.html"  class="active">Menu</a>
+            <a href="contact.html">Contact</a>
+            
+        </div>
+    </nav>
+
+    <h2>Menu:</h2>
+    <p>Waffles and eggs $3</p>
+    <figure class="w">
+        <img class="waffle" src="pictures/waffle.jpg" alt="picture of waffles">
+    </figure>
+    
+    <!-- Dynamically calculate the total -->
+    <form id="calculate">
+        
+        <label for="wquanity" >Quanity:</label>
+        <input type="number" id="wquanity" name="wquanity" min="0" max="7" value="0" >
+        <span id="wquantityError" style="color: red;"></span>
+    
+    <hr>
+    <p>Chicken sandwhich $4</p>
+    <figure>
+        <img class="sandwhich" src="pictures/sandwhich.jpg" alt="picture of sandwhich">
+    </figure>
+    
+        <label for="squanity">Quanity:</label>
+        <input type="number" id="squanity" name="squanity" min="0" max="7" value="0" >
+        <span id="squantityError" style="color: red;"></span>
+    
+    <hr>
+    
+    <p>Pasta $6</p>
+    <figure>
+        <img class="pasta" src="pictures/pasta.jpg" alt="picture of pasta">
+    </figure>
+    
+        <label for="pquanity" >Quanity:</label>
+        <input type="number" id="pquanity" name="pquanity" min="0" max="7" value="0" >
+        <span id="pquantityError" style="color: red;"></span>
+
+        <button type="button" onclick="calcfinal()">Calculate Total</button>
+    </form>
+    <br>
+    <hr>
+    <div id="totalq">
+        <label for="total">Your Total: $</label>
+            <span id="total">0.00</span>
+            
+           
+    </div>
+
+    <div id="errormessage"></div>
+   
+
+    <footer>
+        <p>&copy; 2024 Sugarland Eats. All rights reserved.</p>
+    </footer>
+
+     <!-- JS to calc -->
+     <script>
+
+        function calcfinal() {
+            
+            document.getElementById("wquantityError").textContent = "";
+            document.getElementById("squantityError").textContent = "";
+            document.getElementById("pquantityError").textContent = "";
+            document.getElementById("errormessage").textContent = "";
+            // get values from the input fields
+            const totalwaffles=parseFloat(document.getElementById("wquanity").value);
+            const totalsandwhich=parseFloat(document.getElementById("squanity").value);
+            const totalpasta=parseFloat(document.getElementById("pquanity").value);
+            // will help to stop the total from calculating if there's errors
+            let isError=false;
+
+           //verify values are numbers and that they are between 1-7
+             if(isNaN(totalwaffles) || totalwaffles < 0 || totalwaffles > 7) {
+                document.getElementById('wquantityError').textContent='please enter a quantity between 1 to 7';
+                alert('please enter a valid quantity for waffles between 1 to 7');
+                isError=true;
+                
+                
+             }
+
+
+             if(isNaN(totalsandwhich) || totalsandwhich < 0 || totalsandwhich > 7) {
+                    document.getElementById('squantityError').textContent='please enter a quantity between 1 to 7';
+                    alert('please enter a valid quantity for sandwhich between 1 to 7');
+                    isError=true;
+                    
+                }
+                
+                
+             if( isNaN(totalpasta) || totalpasta < 0 || totalpasta > 7) {
+                    document.getElementById('pquantityError').textContent='please enter a quantity between 1 to 7';
+                    alert('please enter a valid quantity for pasta between 1 to 7');
+                    isError=true;
+                    
+                }
+
+
+            if(!isError){
+                 // calculate the total
+            const total= (totalwaffles* 3) + (totalsandwhich* 4) +(totalpasta* 6);
+
+                // display total
+            document.getElementById("totalq").textContent = "Your Total: $" + total.toFixed(2);
+
+
+            } else {
+        //  This Clear's total if there are errors
+        document.getElementById("totalq").textContent = "Your Total: $0.00";
+    }
+                    
+                    
+           
+           
+           
+          
+        }
+     </script>
+   
+</body>
+</html>

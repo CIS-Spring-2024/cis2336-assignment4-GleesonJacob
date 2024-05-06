@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: rgb(248, 244, 244);
+    padding: 20px;
+}
+
+header {
+    background: red;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.owner{
+    height: 350px;
+    width: 250px;
+    padding: 15px;
+    display: block;
+    margin: auto;
+}
+
+.rpic{
+    padding-left: 30px;
+    height: 360px;
+  
+}
+#totalq{
+    background-color: #4CAF50;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 10px;
+}
+
+.topnav{
+    background-color: #333;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.logo{
+    height: 90px;
+}
+
+nav a{
+    display: inline;
+    margin-right: 20px;
+    color: white;
+    text-decoration: none; /* Removes the underline */
+    padding: 10px;
+
+    
+    
+}
+
+footer{
+    margin-top: auto;
+    background-color: black;
+    padding: 20px;
+    color: #fff;
+}
+
+a:hover {
+    color: red
+}
+
+.sandwhich{
+    
+    height: 200px;
+}
+.waffle{
+    height: 200px;
+}
+.pasta{
+    height: 200px;
+}
+
+.topnav a.active {
+    background-color: #4CAF50; /* Green background for the active link */
+    color: white;
+    width: 10px;
+}
+
